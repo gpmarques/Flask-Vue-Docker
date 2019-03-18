@@ -1,0 +1,22 @@
+version: '3'
+services:
+  client:
+    image: docker-test/client
+    build:
+      context: ./
+      dockerfile: client.dockerfile
+    command: npm run dev
+    volumes:
+      - ./client:/client
+    ports:
+      - "8080:8080"
+  server:
+    image: docker-test/server
+    build:
+      context: ./
+      dockerfile: server.dockerfile
+    command: python run.py
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./server:/server

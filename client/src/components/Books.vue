@@ -121,7 +121,7 @@ import Alert from './Alert';
 
 axios.defaults.headers.common = {
   'Content-Type': 'application/json',
-  'Access-Control-Allow-Origin': '*'
+  'Access-Control-Allow-Origin': '*',
 };
 
 export default {
@@ -148,7 +148,7 @@ export default {
   },
   methods: {
     getBooks() {
-      const path = 'http://localhost:5000/books';
+      const path = 'http://127.0.0.1:8000/books';
       axios.get(path)
         .then((res) => {
           this.books = res.data.books[0];
@@ -161,7 +161,7 @@ export default {
         });
     },
     addBook(payload) {
-      const path = 'http://localhost:5000/books';
+      const path = 'http://127.0.0.1:8000/books';
       axios.post(path, payload)
         .then(() => {
           this.getBooks();
@@ -175,7 +175,7 @@ export default {
         });
     },
     updateBook(payload, bookID) {
-      const path = `http://localhost:5000/books/${bookID}`;
+      const path = `http://127.0.0.1:8000/books/${bookID}`;
       axios.put(path, payload)
         .then(() => {
           this.getBooks();
@@ -189,7 +189,7 @@ export default {
         });
     },
     removeBook(bookID) {
-      const path = `http://localhost:5000/books/${bookID}`;
+      const path = `http://127.0.0.1:8000/books/${bookID}`;
       axios.delete(path)
         .then(() => {
           this.getBooks();

@@ -9,4 +9,4 @@ RUN pip install -r requirements.txt
 
 ADD ./server ./
 
-CMD python run.py
+CMD gunicorn -b 0.0.0.0:8000 run:app

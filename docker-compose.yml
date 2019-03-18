@@ -5,18 +5,4 @@ services:
     build:
       context: ./
       dockerfile: server.dockerfile
-    command: python run.py
-    ports:
-      - "5000:5000"
-    volumes:
-      - ./server:/server
-  client:
-    image: docker-test/client
-    build:
-      context: ./
-      dockerfile: client.dockerfile
-    command: npm run dev
-    volumes:
-      - ./client:/client
-    ports:
-      - "8080:8080"
+    command: gunicorn -b 0.0.0.0:8000 run:app

@@ -25,6 +25,8 @@ def create_app(config_file):
     return app
 
 
+app = create_app('config')
+
+
 if __name__ == '__main__':
-    app = create_app('config')
-    app.run('0.0.0.0')
+    app.run(host='0.0.0.0', port='8000')

@@ -1,0 +1,19 @@
+version: '3'
+services:
+  nginx:
+    image: docker-test/nginx
+    build:
+      context: ./
+      dockerfile: nginx.dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - server
+  server:
+    image: docker-test/server
+    build:
+      context: ./
+      dockerfile: server.dockerfile
+    command: gunicorn -b 0.0.0.0:8000 run:app
+    ports:
+      - "8000:8000"

@@ -4,7 +4,6 @@ from flask import request
 from models import db
 from models import Book
 from serializer import BookSchema
-import uuid
 
 book_blueprint = Blueprint('books', __name__)
 
