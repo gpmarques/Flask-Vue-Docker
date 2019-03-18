@@ -9,7 +9,9 @@
 * PostgreSQL
  
 Must add a config.py file to the server directory.
+
 Setup SQLAlchemy database URI and other Flask env's variables you want to in it.
+
 There is no docker service to Postgres because I opted to use an RDS free tier database instance.
 
 To execute the development env:
